@@ -31,7 +31,7 @@ public class MarcaController {
     public ResponseEntity<Marca> guardarMarca(@Valid @RequestBody Marca marcaAregistrar){
         Marca MarcaGuardada = marcaRepository.save(marcaAregistrar);
         URI rutaEnvio = ServletUriComponentsBuilder
-                .fromCurrentRequest().path("{/idMarca}")
+                .fromCurrentRequest().path("/{idMarca}")
                 .buildAndExpand(MarcaGuardada.getIdMarca()).toUri();
         return ResponseEntity.created(rutaEnvio).body(MarcaGuardada);
     }

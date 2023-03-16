@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, unique = true)
+    @Column(unique = true, nullable = false)
     private Integer indice;
     @NotNull
     private String codigo;
