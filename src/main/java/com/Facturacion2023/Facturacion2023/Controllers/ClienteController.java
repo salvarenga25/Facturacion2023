@@ -19,7 +19,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/cliente")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "http://localhost:4200/") //you give the priviledge to the specific route you can consume the service
 public class ClienteController {
     @Autowired
     ClienteRepository clienteRepository;
