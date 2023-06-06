@@ -1,20 +1,16 @@
 package com.Facturacion2023.Facturacion2023.Configuraciones;
-
+import org.springframework.stereotype.Component;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
-
 @Component
-public class JWTUtils {
-
+public class JwtUtils {
     private String SECRET_KEY = "clavesecreta";
 
     public String extractUsername(String token) {
@@ -53,4 +49,5 @@ public class JWTUtils {
         final String username = extractUsername(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
+
 }

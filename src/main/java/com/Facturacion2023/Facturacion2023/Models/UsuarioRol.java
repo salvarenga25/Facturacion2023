@@ -1,7 +1,7 @@
 package com.Facturacion2023.Facturacion2023.Models;
 
 import javax.persistence.*;
-import javax.persistence.*;
+
 
 @Entity
 public class UsuarioRol {
