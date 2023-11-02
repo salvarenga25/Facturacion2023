@@ -7,6 +7,7 @@ import com.Facturacion2023.Facturacion2023.Repositories.UsuarioRepository;
 import com.Facturacion2023.Facturacion2023.Servicios.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -23,9 +24,13 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+    @Autowired
+    private BCryptPasswordEncoder bCriptPasswordEncoder;
+
     @PostMapping("/")
     public Usuario guardarUsuario(@RequestBody Usuario usuario) throws Exception{
         usuario.setPerfil("default.png");
+        usuario.setPassword(this.bCriptPasswordEncoder.encode(usuario.getPassword()));
         Set<UsuarioRol> usuarioRoles = new HashSet<>();
 
         Rol rol = new Rol();

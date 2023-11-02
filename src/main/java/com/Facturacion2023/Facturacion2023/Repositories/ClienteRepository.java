@@ -8,4 +8,6 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 
     @Query("SELECT c from Cliente c WHERE dnioruc = :dnioruc ")
     Cliente  findByDnioruc(String dnioruc);
+
+    Cliente findByRazon(String razon);
 }

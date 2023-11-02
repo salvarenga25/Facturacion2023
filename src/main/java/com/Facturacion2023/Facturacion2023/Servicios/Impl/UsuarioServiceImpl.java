@@ -1,5 +1,6 @@
 package com.Facturacion2023.Facturacion2023.Servicios.Impl;
 
+import com.Facturacion2023.Facturacion2023.Exception.UsuarioFoundException;
 import com.Facturacion2023.Facturacion2023.Models.Usuario;
 import com.Facturacion2023.Facturacion2023.Models.UsuarioRol;
 import com.Facturacion2023.Facturacion2023.Repositories.RolRepository;
@@ -24,7 +25,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         Usuario usuarioLocal = usuarioRepository.findByUsername(usuario.getUsername());
         if(usuarioLocal != null){
             System.out.println("El usuario ya existe");
-            throw new Exception("El usuario ya esta presente");
+            throw new UsuarioFoundException("El usuario ya esta presente");
         }
         else{
             for(UsuarioRol usuarioRol:usuarioRoles){
