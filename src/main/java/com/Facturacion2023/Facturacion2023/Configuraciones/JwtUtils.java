@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.function.Function;
 @Component
 public class JwtUtils {
-    private String SECRET_KEY = "clavesecreta";
+    private String SECRET_KEY = "YOUR PRIVATE KEY";
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
